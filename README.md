@@ -73,3 +73,11 @@ Katkı sağlamak için PR gönderebilir veya issue açabilirsiniz.
 ## Lisans
 
 MIT
+
+---
+
+## Proje Sahibi
+
+Yildiz Ucucu
+
+---
