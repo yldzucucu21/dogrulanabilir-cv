@@ -1,0 +1,15 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js",
+  "/verify": "pages/verify.js",
+  "/my-cvs": "pages/my-cvs.js",
+  "/api/cvs": "pages/api/cvs.js",
+  "/api/blockchain/stamps": "pages/api/blockchain/stamps.js",
+  "/create-cv": "pages/create-cv.js",
+  "/preview-cv": "pages/preview-cv.js",
+  "/api/blockchain/stamp": "pages/api/blockchain/stamp.js",
+  "/api/cvs/[id]": "pages/api/cvs/[id].js",
+  "/api/categories": "pages/api/categories.js"
+}

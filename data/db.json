@@ -1,0 +1,63 @@
+{
+  "cvs": [
+    {
+      "id": "txugyrt",
+      "title": "İsim Soyisim",
+      "items": [
+        {
+          "id": "0",
+          "title": "Kariyer Hedefi",
+          "description": "Kariyer hedeflerinizi ve kendinizi tanıtan kısa bir yazı ekleyin.",
+          "category": "Kariyer Hedefi / Hakkımda"
+        },
+        {
+          "id": "1",
+          "title": "Kişisel Bilgiler",
+          "description": "Açıklama ekleyebilirsiniz.",
+          "category": "Kişisel Bilgiler"
+        },
+        {
+          "id": "2",
+          "title": "Eğitim",
+          "description": "Açıklama ekleyebilirsiniz.",
+          "category": "Eğitim Bilgileri"
+        },
+        {
+          "id": "3",
+          "title": "İş Deneyimi",
+          "description": "Açıklama ekleyebilirsiniz.",
+          "category": "Deneyim / İş Deneyimi"
+        },
+        {
+          "id": "4",
+          "title": "Yetenekler",
+          "description": "Açıklama ekleyebilirsiniz.",
+          "category": "Yetenekler / Teknik Beceriler"
+        }
+      ],
+      "profile": {
+        "fullName": "İsim Soyisim",
+        "title": "Pozisyon",
+        "contact": "Şehir • e-posta • telefon",
+        "photo": "",
+        "about": ""
+      },
+      "stamps": []
+    }
+  ],
+  "stamps": [],
+  "categories": [
+    "Kariyer Hedefi / Hakkımda",
+    "Kişisel Bilgiler",
+    "Eğitim Bilgileri",
+    "Deneyim / İş Deneyimi",
+    "Projeler",
+    "Sertifikalar",
+    "Yetenekler / Teknik Beceriler",
+    "Gönüllülük Deneyimleri",
+    "Kulüp veya STK Katılımları",
+    "Yabancı Diller",
+    "Hobiler / İlgi Alanları",
+    "Referanslar"
+  ]
+}

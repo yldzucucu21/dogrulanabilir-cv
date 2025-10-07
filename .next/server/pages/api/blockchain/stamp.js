@@ -1,0 +1,76 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(() => {
+var exports = {};
+exports.id = "pages/api/blockchain/stamp";
+exports.ids = ["pages/api/blockchain/stamp"];
+exports.modules = {
+
+/***/ "crypto":
+/*!*************************!*\
+  !*** external "crypto" ***!
+  \*************************/
+/***/ ((module) => {
+
+module.exports = require("crypto");
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+module.exports = require("fs");
+
+/***/ }),
+
+/***/ "path":
+/*!***********************!*\
+  !*** external "path" ***!
+  \***********************/
+/***/ ((module) => {
+
+module.exports = require("path");
+
+/***/ }),
+
+/***/ "(api)/./pages/api/blockchain/stamp.ts":
+/*!***************************************!*\
+  !*** ./pages/api/blockchain/stamp.ts ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ handler)\n/* harmony export */ });\n/* harmony import */ var _src_lib_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../src/lib/store */ \"(api)/./src/lib/store.ts\");\n/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! crypto */ \"crypto\");\n/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(crypto__WEBPACK_IMPORTED_MODULE_1__);\n\n\nfunction handler(req, res) {\n    if (req.method !== \"POST\") return res.status(405).end();\n    const { payload, cvId } = req.body;\n    const hash = crypto__WEBPACK_IMPORTED_MODULE_1___default().createHash(\"sha256\").update(JSON.stringify(payload)).digest(\"hex\");\n    const stamp = {\n        id: hash,\n        timestamp: Date.now(),\n        payload\n    };\n    if (cvId) {\n        const saved = _src_lib_store__WEBPACK_IMPORTED_MODULE_0__.db.saveStampToCv(cvId, stamp);\n        if (!saved) return res.status(404).json({\n            error: \"cv not found\"\n        });\n    } else {\n        _src_lib_store__WEBPACK_IMPORTED_MODULE_0__.db.saveStamp(stamp);\n    }\n    res.status(201).json(stamp);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9wYWdlcy9hcGkvYmxvY2tjaGFpbi9zdGFtcC50cyIsIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQzJDO0FBQ2hCO0FBRVosU0FBU0UsUUFBUUMsR0FBbUIsRUFBRUMsR0FBb0I7SUFDdkUsSUFBR0QsSUFBSUUsTUFBTSxLQUFLLFFBQVEsT0FBT0QsSUFBSUUsTUFBTSxDQUFDLEtBQUtDLEdBQUc7SUFDcEQsTUFBTSxFQUFFQyxPQUFPLEVBQUVDLElBQUksRUFBRSxHQUFHTixJQUFJTyxJQUFJO0lBQ2xDLE1BQU1DLE9BQU9WLHdEQUFpQixDQUFDLFVBQVVZLE1BQU0sQ0FBQ0MsS0FBS0MsU0FBUyxDQUFDUCxVQUFVUSxNQUFNLENBQUM7SUFDaEYsTUFBTUMsUUFBUTtRQUFDQyxJQUFJUDtRQUFNUSxXQUFXQyxLQUFLQyxHQUFHO1FBQUliO0lBQU87SUFDdkQsSUFBR0MsTUFBSztRQUNOLE1BQU1hLFFBQVF0Qiw4Q0FBRUEsQ0FBQ3VCLGFBQWEsQ0FBQ2QsTUFBTVE7UUFDckMsSUFBRyxDQUFDSyxPQUFPLE9BQU9sQixJQUFJRSxNQUFNLENBQUMsS0FBS2tCLElBQUksQ0FBQztZQUFDQyxPQUFNO1FBQWM7SUFDOUQsT0FBTztRQUNMekIsOENBQUVBLENBQUMwQixTQUFTLENBQUNUO0lBQ2Y7SUFDQWIsSUFBSUUsTUFBTSxDQUFDLEtBQUtrQixJQUFJLENBQUNQO0FBQ3ZCIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vY3Ytc2lzdGVtaS8uL3BhZ2VzL2FwaS9ibG9ja2NoYWluL3N0YW1wLnRzPzc5MWIiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTmV4dEFwaVJlcXVlc3QsIE5leHRBcGlSZXNwb25zZSB9IGZyb20gJ25leHQnXHJcbmltcG9ydCB7IGRiIH0gZnJvbSAnLi4vLi4vLi4vc3JjL2xpYi9zdG9yZSdcclxuaW1wb3J0IGNyeXB0byBmcm9tICdjcnlwdG8nXHJcblxyXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBoYW5kbGVyKHJlcTogTmV4dEFwaVJlcXVlc3QsIHJlczogTmV4dEFwaVJlc3BvbnNlKXtcclxuICBpZihyZXEubWV0aG9kICE9PSAnUE9TVCcpIHJldHVybiByZXMuc3RhdHVzKDQwNSkuZW5kKClcclxuICBjb25zdCB7IHBheWxvYWQsIGN2SWQgfSA9IHJlcS5ib2R5XHJcbiAgY29uc3QgaGFzaCA9IGNyeXB0by5jcmVhdGVIYXNoKCdzaGEyNTYnKS51cGRhdGUoSlNPTi5zdHJpbmdpZnkocGF5bG9hZCkpLmRpZ2VzdCgnaGV4JylcclxuICBjb25zdCBzdGFtcCA9IHtpZDogaGFzaCwgdGltZXN0YW1wOiBEYXRlLm5vdygpLCBwYXlsb2FkfVxyXG4gIGlmKGN2SWQpe1xyXG4gICAgY29uc3Qgc2F2ZWQgPSBkYi5zYXZlU3RhbXBUb0N2KGN2SWQsIHN0YW1wKVxyXG4gICAgaWYoIXNhdmVkKSByZXR1cm4gcmVzLnN0YXR1cyg0MDQpLmpzb24oe2Vycm9yOidjdiBub3QgZm91bmQnfSlcclxuICB9IGVsc2Uge1xyXG4gICAgZGIuc2F2ZVN0YW1wKHN0YW1wKVxyXG4gIH1cclxuICByZXMuc3RhdHVzKDIwMSkuanNvbihzdGFtcClcclxufVxyXG4iXSwibmFtZXMiOlsiZGIiLCJjcnlwdG8iLCJoYW5kbGVyIiwicmVxIiwicmVzIiwibWV0aG9kIiwic3RhdHVzIiwiZW5kIiwicGF5bG9hZCIsImN2SWQiLCJib2R5IiwiaGFzaCIsImNyZWF0ZUhhc2giLCJ1cGRhdGUiLCJKU09OIiwic3RyaW5naWZ5IiwiZGlnZXN0Iiwic3RhbXAiLCJpZCIsInRpbWVzdGFtcCIsIkRhdGUiLCJub3ciLCJzYXZlZCIsInNhdmVTdGFtcFRvQ3YiLCJqc29uIiwiZXJyb3IiLCJzYXZlU3RhbXAiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(api)/./pages/api/blockchain/stamp.ts\n");
+
+/***/ }),
+
+/***/ "(api)/./src/lib/store.ts":
+/*!**************************!*\
+  !*** ./src/lib/store.ts ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   db: () => (/* binding */ db)\n/* harmony export */ });\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fs */ \"fs\");\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconst DB_PATH = path__WEBPACK_IMPORTED_MODULE_1___default().join(process.cwd(), \"data\", \"db.json\");\nfunction readDb() {\n    try {\n        const raw = fs__WEBPACK_IMPORTED_MODULE_0___default().readFileSync(DB_PATH, \"utf8\");\n        return JSON.parse(raw);\n    } catch (err) {\n        const initial = {\n            cvs: [],\n            stamps: [],\n            categories: []\n        };\n        try {\n            fs__WEBPACK_IMPORTED_MODULE_0___default().mkdirSync(path__WEBPACK_IMPORTED_MODULE_1___default().dirname(DB_PATH), {\n                recursive: true\n            });\n        } catch  {}\n        fs__WEBPACK_IMPORTED_MODULE_0___default().writeFileSync(DB_PATH, JSON.stringify(initial, null, 2));\n        return initial;\n    }\n}\nfunction writeDb(db) {\n    fs__WEBPACK_IMPORTED_MODULE_0___default().writeFileSync(DB_PATH, JSON.stringify(db, null, 2), \"utf8\");\n}\nconst db = {\n    save (body) {\n        const data = readDb();\n        const id = Math.random().toString(36).slice(2, 9);\n        const cv = {\n            id,\n            title: body.title || \"Untitled\",\n            items: body.items || [],\n            profile: body.profile || {},\n            stamps: body.stamps || []\n        };\n        data.cvs.push(cv);\n        writeDb(data);\n        return cv;\n    },\n    getAll () {\n        const data = readDb();\n        return data.cvs;\n    },\n    getById (id) {\n        const data = readDb();\n        return data.cvs.find((c)=>c.id === id);\n    },\n    saveStampToCv (cvId, s) {\n        const data = readDb();\n        const cv = data.cvs.find((c)=>c.id === cvId);\n        if (!cv) return null;\n        cv.stamps = cv.stamps || [];\n        cv.stamps.push(s);\n        data.stamps.push(s);\n        writeDb(data);\n        return s;\n    },\n    saveStamp (s) {\n        const data = readDb();\n        data.stamps.push(s);\n        writeDb(data);\n        return s;\n    },\n    getStamps () {\n        const data = readDb();\n        return data.stamps;\n    },\n    // categories\n    getCategories () {\n        const data = readDb();\n        return data.categories || [];\n    },\n    addCategory (name) {\n        const data = readDb();\n        if (!data.categories) data.categories = [];\n        if (!data.categories.includes(name)) data.categories.push(name);\n        writeDb(data);\n        return data.categories;\n    }\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,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VixVQUFVO0lBQ3hCO0FBQ0YsRUFBQyIsInNvdXJjZXMiOlsid2VicGFjazovL2N2LXNpc3RlbWkvLi9zcmMvbGliL3N0b3JlLnRzP2FkMzMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGZzIGZyb20gJ2ZzJ1xyXG5pbXBvcnQgcGF0aCBmcm9tICdwYXRoJ1xyXG5cclxudHlwZSBDdiA9IHsgaWQ6IHN0cmluZzsgdGl0bGU6IHN0cmluZzsgaXRlbXM6IGFueVtdOyBwcm9maWxlPzogYW55OyBzdGFtcHM/OiBTdGFtcFtdIH1cclxudHlwZSBTdGFtcCA9IHsgaWQ6IHN0cmluZzsgdGltZXN0YW1wOiBudW1iZXI7IHBheWxvYWQ6IGFueSB9XHJcbnR5cGUgRGJTaGFwZSA9IHsgY3ZzOiBDdltdOyBzdGFtcHM6IFN0YW1wW107IGNhdGVnb3JpZXM6IHN0cmluZ1tdIH1cclxuXHJcbmNvbnN0IERCX1BBVEggPSBwYXRoLmpvaW4ocHJvY2Vzcy5jd2QoKSwgJ2RhdGEnLCAnZGIuanNvbicpXHJcblxyXG5mdW5jdGlvbiByZWFkRGIoKTogRGJTaGFwZSB7XHJcbiAgdHJ5IHtcclxuICAgIGNvbnN0IHJhdyA9IGZzLnJlYWRGaWxlU3luYyhEQl9QQVRILCAndXRmOCcpXHJcbiAgICByZXR1cm4gSlNPTi5wYXJzZShyYXcpIGFzIERiU2hhcGVcclxuICB9IGNhdGNoIChlcnIpIHtcclxuICAgIGNvbnN0IGluaXRpYWw6IERiU2hhcGUgPSB7IGN2czogW10sIHN0YW1wczogW10sIGNhdGVnb3JpZXM6IFtdIH1cclxuICAgIHRyeSB7IGZzLm1rZGlyU3luYyhwYXRoLmRpcm5hbWUoREJfUEFUSCksIHsgcmVjdXJzaXZlOiB0cnVlIH0pIH0gY2F0Y2gge31cclxuICAgIGZzLndyaXRlRmlsZVN5bmMoREJfUEFUSCwgSlNPTi5zdHJpbmdpZnkoaW5pdGlhbCwgbnVsbCwgMikpXHJcbiAgICByZXR1cm4gaW5pdGlhbFxyXG4gIH1cclxufVxyXG5cclxuZnVuY3Rpb24gd3JpdGVEYihkYjogRGJTaGFwZSkge1xyXG4gIGZzLndyaXRlRmlsZVN5bmMoREJfUEFUSCwgSlNPTi5zdHJpbmdpZnkoZGIsIG51bGwsIDIpLCAndXRmOCcpXHJcbn1cclxuXHJcbmV4cG9ydCBjb25zdCBkYiA9IHtcclxuICBzYXZlKGJvZHk6IGFueSkge1xyXG4gICAgY29uc3QgZGF0YSA9IHJlYWREYigpXHJcbiAgICBjb25zdCBpZCA9IE1hdGgucmFuZG9tKCkudG9TdHJpbmcoMzYpLnNsaWNlKDIsIDkpXHJcbiAgICBjb25zdCBjdjogQ3YgPSB7XHJcbiAgICAgIGlkLFxyXG4gICAgICB0aXRsZTogYm9keS50aXRsZSB8fCAnVW50aXRsZWQnLFxyXG4gICAgICBpdGVtczogYm9keS5pdGVtcyB8fCBbXSxcclxuICAgICAgcHJvZmlsZTogYm9keS5wcm9maWxlIHx8IHt9LFxyXG4gICAgICBzdGFtcHM6IGJvZHkuc3RhbXBzIHx8IFtdXHJcbiAgICB9XHJcbiAgICBkYXRhLmN2cy5wdXNoKGN2KVxyXG4gICAgd3JpdGVEYihkYXRhKVxyXG4gICAgcmV0dXJuIGN2XHJcbiAgfSxcclxuICBnZXRBbGwoKSB7XHJcbiAgICBjb25zdCBkYXRhID0gcmVhZERiKClcclxuICAgIHJldHVybiBkYXRhLmN2c1xyXG4gIH0sXHJcbiAgZ2V0QnlJZChpZDogc3RyaW5nKSB7XHJcbiAgICBjb25zdCBkYXRhID0gcmVhZERiKClcclxuICAgIHJldHVybiBkYXRhLmN2cy5maW5kKGMgPT4gYy5pZCA9PT0gaWQpXHJcbiAgfSxcclxuICBzYXZlU3RhbXBUb0N2KGN2SWQ6IHN0cmluZywgczogU3RhbXApe1xyXG4gICAgY29uc3QgZGF0YSA9IHJlYWREYigpXHJcbiAgICBjb25zdCBjdiA9IGRhdGEuY3ZzLmZpbmQoYyA9PiBjLmlkID09PSBjdklkKVxyXG4gICAgaWYoIWN2KSByZXR1cm4gbnVsbFxyXG4gICAgY3Yuc3RhbXBzID0gY3Yuc3RhbXBzIHx8IFtdXHJcbiAgICBjdi5zdGFtcHMucHVzaChzKVxyXG4gICAgZGF0YS5zdGFtcHMucHVzaChzKVxyXG4gICAgd3JpdGVEYihkYXRhKVxyXG4gICAgcmV0dXJuIHNcclxuICB9LFxyXG4gIHNhdmVTdGFtcChzOiBTdGFtcCl7XHJcbiAgICBjb25zdCBkYXRhID0gcmVhZERiKClcclxuICAgIGRhdGEuc3RhbXBzLnB1c2gocylcclxuICAgIHdyaXRlRGIoZGF0YSlcclxuICAgIHJldHVybiBzXHJcbiAgfSxcclxuICBnZXRTdGFtcHMoKXtcclxuICAgIGNvbnN0IGRhdGEgPSByZWFkRGIoKVxyXG4gICAgcmV0dXJuIGRhdGEuc3RhbXBzXHJcbiAgfSxcclxuICAvLyBjYXRlZ29yaWVzXHJcbiAgZ2V0Q2F0ZWdvcmllcygpe1xyXG4gICAgY29uc3QgZGF0YSA9IHJlYWREYigpXHJcbiAgICByZXR1cm4gZGF0YS5jYXRlZ29yaWVzIHx8IFtdXHJcbiAgfSxcclxuICBhZGRDYXRlZ29yeShuYW1lOiBzdHJpbmcpe1xyXG4gICAgY29uc3QgZGF0YSA9IHJlYWREYigpXHJcbiAgICBpZighZGF0YS5jYXRlZ29yaWVzKSBkYXRhLmNhdGVnb3JpZXMgPSBbXVxyXG4gICAgaWYoIWRhdGEuY2F0ZWdvcmllcy5pbmNsdWRlcyhuYW1lKSkgZGF0YS5jYXRlZ29yaWVzLnB1c2gobmFtZSlcclxuICAgIHdyaXRlRGIoZGF0YSlcclxuICAgIHJldHVybiBkYXRhLmNhdGVnb3JpZXNcclxuICB9XHJcbn1cclxuIl0sIm5hbWVzIjpbImZzIiwicGF0aCIsIkRCX1BBVEgiLCJqb2luIiwicHJvY2VzcyIsImN3ZCIsInJlYWREYiIsInJhdyIsInJlYWRGaWxlU3luYyIsIkpTT04iLCJwYXJzZSIsImVyciIsImluaXRpYWwiLCJjdnMiLCJzdGFtcHMiLCJjYXRlZ29yaWVzIiwibWtkaXJTeW5jIiwiZGlybmFtZSIsInJlY3Vyc2l2ZSIsIndyaXRlRmlsZVN5bmMiLCJzdHJpbmdpZnkiLCJ3cml0ZURiIiwiZGIiLCJzYXZlIiwiYm9keSIsImRhdGEiLCJpZCIsIk1hdGgiLCJyYW5kb20iLCJ0b1N0cmluZyIsInNsaWNlIiwiY3YiLCJ0aXRsZSIsIml0ZW1zIiwicHJvZmlsZSIsInB1c2giLCJnZXRBbGwiLCJnZXRCeUlkIiwiZmluZCIsImMiLCJzYXZlU3RhbXBUb0N2IiwiY3ZJZCIsInMiLCJzYXZlU3RhbXAiLCJnZXRTdGFtcHMiLCJnZXRDYXRlZ29yaWVzIiwiYWRkQ2F0ZWdvcnkiLCJuYW1lIiwiaW5jbHVkZXMiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(api)/./src/lib/store.ts\n");
+
+/***/ })
+
+};
+;
+
+// load runtime
+var __webpack_require__ = require("../../../webpack-api-runtime.js");
+__webpack_require__.C(exports);
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = (__webpack_exec__("(api)/./pages/api/blockchain/stamp.ts"));
+module.exports = __webpack_exports__;
+
+})();
